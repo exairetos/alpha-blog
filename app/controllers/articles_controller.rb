@@ -1,7 +1,11 @@
 class ArticlesController < ApplicationController
 
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
+
   def show
-    @article = Article.find(params[:id]) #instance variable
+    # replaced by the before_action attribute
+    # which calls the privet set_article method
+    # @article = Article.find(params[:id]) #instance variable
   end
 
   def index
@@ -13,13 +17,14 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
+    # replaced by the before_action attribute
+    # @article = Article.find(params[:id])
   end
 
   def create
     # render plain: params[:article]
     # whitelist the params we need
-    @article = Article.new(params.require(:article).permit(:title, :description))
+    @article = Article.new(article_params)
     # render plain: @article.inspect
     if @article.save
       flash[:notice] = "Article was created succesfully."
@@ -34,9 +39,10 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.find(params[:id])
+    # replaced by the before_action attribute
+    # @article = Article.find(params[:id])
     # whitelist the params we need
-    if @article.update(params.require(:article).permit(:title, :description))
+    if @article.update(article_params)
       flash[:notice] = "Article was updated succesfully."
       redirect_to @article
     else
@@ -45,9 +51,19 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
+    # replaced by the before_action attribute
+    # @article = Article.find(params[:id])
     @article.destroy
     redirect_to articles_path
+  end
+
+  private
+  def set_article
+    @article = Article.find(params[:id]) #instance variable
+  end
+
+  def article_params
+    params.require(:article).permit(:title, :description)
   end
 
 end
