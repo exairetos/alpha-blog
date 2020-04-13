@@ -16,7 +16,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <% if logged_in? %>
-          <%= link_to "Create new", new_article_path, class: "dropdown-item" %>
+            <%= link_to "Create new", new_article_path, class: "dropdown-item" %>
           <% end %>
           <%= link_to "View all", articles_path, class: "dropdown-item" %>
           <div class="dropdown-divider"></div>
@@ -36,7 +36,7 @@
           <%= link_to "Log out", logout_path, method: :delete, class: "nav-link" %>
           <li class="nav-item dropdown mr-5">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= current_user.username %>
+              <%= current_user.username %><%=  " * Admin" if current_user.admin? %>
             </a>
             <div class="dropdown-menu mr-10" aria-labelledby="navbarDropdown">
               <%= link_to "Edit you profile", edit_user_path(current_user), class: "dropdown-item" %>
