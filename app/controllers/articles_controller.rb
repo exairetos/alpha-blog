@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
     # render plain: params[:article]
     # whitelist the params we need
     @article = Article.new(article_params)
-    @article.user = User.first
+    @article.user = current_user
     # render plain: @article.inspect
     if @article.save
       flash[:notice] = "Article was created succesfully."
