@@ -27,6 +27,9 @@ gem 'pagy', '~> 3.5'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# Integration Test
+gem 'rails-controller-testing'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
