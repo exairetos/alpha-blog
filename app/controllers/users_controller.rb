@@ -6,11 +6,11 @@ class UsersController < ApplicationController
 
   def show
     # @articles = @user.articles
-    @pagy, @articles = pagy(@user.articles, items: 5)
+    @articles = @user.articles.paginate(page: params[:page], per_page: 5)
   end
 
   def index
-    @pagy, @users = pagy(User.all, items: 5)
+    @users = User.paginate(page: params[:page], per_page: 5)
   end
 
   def new
