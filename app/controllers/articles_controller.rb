@@ -25,17 +25,11 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    # render plain: params[:article]
-    # whitelist the params we need
+    # whitelist the params
     @article = Article.new(article_params)
     @article.user = current_user
-    # render plain: @article.inspect
     if @article.save
       flash[:notice] = "Article was created succesfully."
-      #redirect
-      # /articles/:id(.:format)
-      # redirect_to article_path(@article)
-      # can be writen as
       redirect_to @article
     else
       render 'new'
@@ -67,7 +61,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :description)
+    params.require(:article).permit(:title, :description, category_ids: [])
   end
 
   def require_same_user
