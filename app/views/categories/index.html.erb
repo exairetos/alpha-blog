@@ -12,6 +12,7 @@
           <div class="card-header font-italic">
             <%= link_to category.name, category %>
           </div>
+          <small><%= pluralize(category.articles.count, "article") %></small>
 
           <div class="card-footer text-muted">
             <small>

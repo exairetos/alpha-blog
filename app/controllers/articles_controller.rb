@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user = current_user
     if @article.save
-      flash[:notice] = "Article was created succesfully."
+      flash[:success] = "Article was created succesfully."
       redirect_to @article
     else
       render 'new'
@@ -41,7 +41,7 @@ class ArticlesController < ApplicationController
     # @article = Article.find(params[:id])
     # whitelist the params we need
     if @article.update(article_params)
-      flash[:notice] = "Article was updated succesfully."
+      flash[:success] = "Article was updated succesfully."
       redirect_to @article
     else
       render 'edit'

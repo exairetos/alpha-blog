@@ -45,7 +45,15 @@ body {
   padding: 3em;
 }
 
-
+.badge a {
+  color: #343A40;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+.input_checkbox input {
+  width: auto !important;
+}
 
 // pagination styling
 .flickr_pagination {

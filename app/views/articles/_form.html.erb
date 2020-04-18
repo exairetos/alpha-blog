@@ -18,6 +18,17 @@
               <%= f.text_area :description, rows: 7, class: "form-control shadow rounded", placeholder: "Description" %>
             </div>
           </div
+          <!-- categories as check-boxes -->
+
+          <div class="form-group row">
+            <div class="col-sm-offset-2 col-md-8 text-light">
+              <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+                <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+              <% end %>
+            </div>
+          </div>
+
+          <!-- ------------------------- -->
           <div class="row justify-content-center">
               <%= f.submit class: "btn btn-outline-light btn-md mx-auto d-block" %>
           </div>
