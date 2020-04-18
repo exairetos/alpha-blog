@@ -5,7 +5,7 @@
 <div class="flickr_pagination mb-3">
   <%= will_paginate @articles, :container => false %>
 </div>
-<%= render 'articles/article' %>
+<%= render 'articles/article', obj: @articles%>
 <div class="flickr_pagination my-3">
   <%= will_paginate @articles, :container => false %>
 </div>
