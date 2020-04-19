@@ -11,7 +11,8 @@
         <div class="card-body">
           <div class="card-text text-left pl-3 pr-3"><%= simple_format(@article.description) %></div>
           <% if @article.categories.any? %>
-            <p>Categories: <%= render @article.categories %></p>
+
+            <div class="row">Categories: <%= render @article.categories %></div>
           <% end %>
           <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
             <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-sm btn-outline-info" %>
