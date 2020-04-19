@@ -20,8 +20,8 @@
           </div
           <!-- categories as check-boxes -->
 
-          <div class="form-group row">
-            <div class="col-sm-offset-2 col-md-8 text-light">
+          <div class="form-group row justify-content-end">
+            <div class="col-sm-offset-2 col-md-10 col-xs-6 text-light">
               <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
                 <% cb.label(class: "checkbox-inline input_checkbox mr-2") {cb.check_box(class: "checkbox mr-1") + cb.text} %>
               <% end %>
