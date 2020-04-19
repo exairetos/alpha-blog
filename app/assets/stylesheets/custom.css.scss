@@ -19,12 +19,15 @@
   margin-top: 25px;
 }
 .jumbotron {
-  background-image: asset-url('jumbo-image.jpg');
+  background-image: asset-url('jumbo-image2.jpg');
   background-position: center center ;
   background-repeat: no-repeat;
   background-size: cover;
   height: 425px;
 
+}
+.jumbotron .lead, p {
+  color: #343A40;
 }
 html,
 body {
