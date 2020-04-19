@@ -51,6 +51,10 @@ body {
   letter-spacing: -1px;
   font-weight: bold;
 }
+.badge a:hover{
+  color: #42A3B8;
+  text-decoration: none;
+}
 .input_checkbox input {
   width: auto !important;
 }
